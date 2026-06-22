@@ -33,13 +33,17 @@ function createNote() {
 }
 
 function renderNotes() {
-    noteList.innerHTML = "<h2>Hexa Notes</h2><button onclick=\"createNote()\">New Note</button>";
+    noteList.innerHTML = "";
 
     notes.forEach(note => {
         const div = document.createElement("div");
 
-        div.innerText = note.title;
+        div.innerText = note.title.trim() === "" ? "New Note" : note.title;
         div.classList.add("note-item");
+
+        if (note.id === currentNoteId) {
+            div.classList.add("active");
+        }
 
         div.onclick = () => openNote(note.id);
 
@@ -55,6 +59,14 @@ function openNote(id) {
 
     noteTitle.value = note.title;
     noteBox.value = note.content;
+
+    const items = noteList.querySelectorAll('.note-item');
+    notes.forEach((n, idx) => {
+        if(items[idx]) {
+            if (n.id === id) items[idx].classList.add('active');
+            else items[idx].classList.remove('active');
+        }
+    });
 }
 
 function saveNotes() {
@@ -67,7 +79,11 @@ noteTitle.addEventListener("input", () => {
 
     note.title = noteTitle.value;
     saveNotes();
-    renderNotes();
+    
+    const activeItem = noteList.querySelector('.note-item.active');
+    if (activeItem) {
+        activeItem.innerText = noteTitle.value.trim() === "" ? "New Note" : noteTitle.value;
+    }
 });
 
 noteBox.addEventListener("input", () => {
@@ -95,6 +111,10 @@ function init() {
         renderNotes();
         openNote(newNote.id);
     }
+
+    setTimeout(() => {
+        document.getElementById('loadingScreen').classList.add('hide-loader');
+    }, 2200);
 }
 
 init();
