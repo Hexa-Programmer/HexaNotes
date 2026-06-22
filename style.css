@@ -5,6 +5,7 @@
     --text-main: #000000;
     --text-muted: #86868b;
     --accent: #007aff;
+    --danger: #ff3b30;
     --border-color: #d1d1d6;
     --hover-color: #e5e5ea;
     --active-color: #d1d1d6;
@@ -19,6 +20,7 @@
         --text-main: #ffffff;
         --text-muted: #98989d;
         --accent: #0a84ff;
+        --danger: #ff453a;
         --border-color: #2c2c2e;
         --hover-color: #2c2c2e;
         --active-color: #3a3a3c;
@@ -192,6 +194,36 @@ body {
     background: var(--active-color);
 }
 
+.editor-header {
+    display: flex;
+    justify-content: flex-end; 
+    margin-bottom: 20px;
+}
+
+.editor-header button {
+    background: transparent;
+    border: none;
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 0;
+    transition: opacity 0.2s ease;
+}
+
+.editor-header button:hover {
+    opacity: 0.7;
+}
+
+.back-btn {
+    color: var(--accent);
+    display: none;
+    font-size: 18px !important;
+}
+
+.delete-btn {
+    color: var(--danger);
+}
+
 .editor {
     flex: 1;
     display: flex;
@@ -225,4 +257,45 @@ body {
     font-size: 16px;
     line-height: 1.6;
     resize: none;
+}
+
+@media (max-width: 768px) {
+    #loadingScreen h1 {
+        font-size: 32px;
+    }
+    
+    .blob-1, .blob-2 {
+        width: 250px;
+        height: 250px;
+    }
+
+    .sidebar {
+        width: 100vw;
+        min-width: 100vw;
+        border-right: none;
+    }
+
+    .editor {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        padding: 30px 20px;
+        transform: translateX(100%);
+        transition: transform 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+        z-index: 10;
+    }
+
+    .container.note-open .editor {
+        transform: translateX(0);
+    }
+
+    .editor-header {
+        justify-content: space-between;
+    }
+
+    .back-btn {
+        display: block;
+    }
 }

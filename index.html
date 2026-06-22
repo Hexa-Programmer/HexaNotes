@@ -1,4 +1,4 @@
-<!--- index.html -->
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +18,7 @@
     <h1>Welcome to HexaNotes</h1>
 </div>
 
-<div class="container">
+<div class="container" id="appContainer">
 
     <div class="sidebar">
         <div class="sidebar-header">
@@ -29,10 +29,15 @@
     </div>
 
     <div class="editor">
+        
+        <div class="editor-header">
+            <button class="back-btn" onclick="closeNote()">‹ Notes</button>
+            <button class="delete-btn" onclick="deleteNote()">Delete Note</button>
+        </div>
 
         <input id="noteTitle" placeholder="Title" />
 
-        <textarea id="noteBox" placeholder="Write something..."></textarea>
+        <textarea id="noteBox" placeholder="Type something..."></textarea>
 
     </div>
 
