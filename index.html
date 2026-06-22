@@ -1,19 +1,33 @@
-<!--index.html-->
+<!--- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>HexaNotes</title>
+
     <link rel="stylesheet" href="style.css">
     <script src="script.js" defer></script>
-
 </head>
+
 <body>
-    <div class ="notes" id="notes">
-        <h1><center>Hexa Notes</center></h1>
-        <input id="noteTitle" placeholder="Title" />
-        <textarea id="noteBox" placeholder="Write something"></textarea>
+
+<div class="container">
+
+    <div class="sidebar" id="notesList">
+        <h2>Hexa Notes</h2>
+        <button onclick="createNote()">New Note</button>
     </div>
+
+    <div class="editor">
+
+        <input id="noteTitle" placeholder="Title" />
+
+        <textarea id="noteBox" placeholder="Write something..."></textarea>
+
+    </div>
+
+</div>
+
 </body>
 </html>
