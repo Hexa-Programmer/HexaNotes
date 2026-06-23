@@ -53,18 +53,6 @@ To run HexaNotes locally:
     cd HexaNotes
     open index.html
 
-
----
-
-## Why I built this
-
-This project was built to practice:
-
-    - DOM manipulation
-    - State management in vanilla JS
-    - localStorage persistence
-    - building real multi-component UI systems
-
 ---
 
 
