@@ -22,23 +22,23 @@
 
     <div class="sidebar">
         <div class="sidebar-header">
-            <h2>Hexa Notes</h2>
-            <button onclick="createNote()">New Note</button>
+            <h2>HexaNotes</h2>
+            <button class="new-btn" onclick="createNote()">New Note</button>
         </div>
         <div id="notesList" class="notes-container"></div>
     </div>
 
     <div class="editor">
-        
-        <div class="editor-header">
-            <button class="back-btn" onclick="closeNote()">‹ Notes</button>
-            <button class="delete-btn" onclick="deleteNote()">Delete Note</button>
+        <div class="display-card">
+            <div class="editor-header">
+                <button class="back-btn" onclick="closeNote()">‹ Notes</button>
+                <button class="delete-btn" onclick="deleteNote()">Delete</button>
+            </div>
+
+            <input id="noteTitle" placeholder="Title" />
+
+            <textarea id="noteBox" placeholder="Type something..."></textarea>
         </div>
-
-        <input id="noteTitle" placeholder="Title" />
-
-        <textarea id="noteBox" placeholder="Type something..."></textarea>
-
     </div>
 
 </div>
