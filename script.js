@@ -1,8 +1,7 @@
 // script.js
 
-//Variables:
+// Variables:
 let saved = localStorage.getItem("hexa_notes");
-
 let notes = [];
 
 try {
@@ -21,7 +20,7 @@ const appContainer = document.getElementById("appContainer");
 function createNote() {
     const newNote = {
         id: Date.now(),
-        title: "New Note",
+        title: "", 
         content: ""
     };
 
@@ -37,7 +36,7 @@ function renderNotes() {
     notes.forEach(note => {
         const div = document.createElement("div");
 
-        div.innerText = note.title.trim() === "" ? "New Note" : note.title;
+        div.innerText = note.title.trim() === "" ? "Untitled Note" : note.title;
         div.classList.add("note-item");
 
         if (note.id === currentNoteId) {
@@ -79,25 +78,21 @@ function closeNote() {
 function deleteNote() {
     if (!currentNoteId) return;
 
-    // Small prompt to prevent accidental deletions
     if (!confirm("Are you sure you want to delete this note?")) return;
 
-    // Filter out the active note
     notes = notes.filter(n => n.id !== currentNoteId);
     saveNotes();
 
-    // If on mobile, slide back out of the editor view automatically
     if (window.innerWidth <= 768) {
         closeNote();
     }
 
-    // Refresh UI and open the next available note
     renderNotes();
     
     if (notes.length > 0) {
         openNote(notes[0].id, false);
     } else {
-        createNote(); // Generate a blank slate if the user deleted their last note
+        createNote(); 
     }
 }
 
@@ -114,7 +109,8 @@ noteTitle.addEventListener("input", () => {
     
     const activeItem = noteList.querySelector('.note-item.active');
     if (activeItem) {
-        activeItem.innerText = noteTitle.value.trim() === "" ? "New Note" : noteTitle.value;
+
+        activeItem.innerText = noteTitle.value.trim() === "" ? "Untitled Note" : noteTitle.value;
     }
 });
 
@@ -134,7 +130,7 @@ function init() {
     } else {
         const newNote = {
             id: Date.now(),
-            title: "New Note",
+            title: "", 
             content: ""
         };
 
