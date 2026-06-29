@@ -1,8 +1,8 @@
 #  HexaNotes
 View HexaNotes at: https://hexa-programmer.github.io/HexaNotes/
-![HexaNotes Gameplay](showcase.png)
 HexaNotes is a minimal, web application built using HTML, CSS, and JavaScript.  
 It runs entirely in the browser with no backend and uses localStorage for persistence.
+![HexaNotes Gameplay](showcase.png)
 
 ---
 
